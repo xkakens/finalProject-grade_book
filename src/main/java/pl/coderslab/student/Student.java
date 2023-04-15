@@ -2,9 +2,9 @@ package pl.coderslab.student;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.coderslab.klasa.Klasa;
 import pl.coderslab.mark.Mark;
 import pl.coderslab.parent.Parent;
+import pl.coderslab.schoolClass.SchoolClass;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Student {
     @OneToOne
     private Parent secondParent;
     @ManyToOne
-    private Klasa klasa;
+    private SchoolClass schoolClass;
     @OneToMany
     private List<Mark> marks;
 }

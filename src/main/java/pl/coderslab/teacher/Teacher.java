@@ -3,11 +3,10 @@ package pl.coderslab.teacher;
 
 import lombok.Getter;
 import lombok.Setter;
+import pl.coderslab.subject.Subject;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,5 +17,6 @@ public class Teacher {
     private Long id;
     private String firstName;
     private String lastName;
-    private String subject;
+    @OneToMany
+    private List<Subject> subjects;
 }
