@@ -21,4 +21,5 @@ public class SchoolClassController {
         model.addAttribute("classes",classes);
         return "class/all";
     }
+
 }
