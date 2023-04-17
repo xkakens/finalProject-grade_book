@@ -19,11 +19,7 @@ public class StudentDao {
     }
     public Student specificStudent(Long id){
         Optional<Student> optStudent = studentRepository.findById(id);
-        if(optStudent.isPresent()){
-            return optStudent.get();
-        } else{
-            return null;
-        }
+        return optStudent.orElse(null);
     }
 
     public void addStudent(Student student){
