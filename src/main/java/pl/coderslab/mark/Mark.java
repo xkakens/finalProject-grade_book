@@ -19,4 +19,6 @@ public class Mark {
     private String description;
     @ManyToOne
     private Subject subject;
+    @ManyToOne
+    private MarkType markType;
 }
