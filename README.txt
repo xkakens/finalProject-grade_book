@@ -35,3 +35,5 @@ Michał: utworzenie encji/tabel
 	godzina rozpoczecia
 -przedmiotyKlasy(id klasy, id przedmiotu, id nauczyciela)
 -user(id, email, haslo, typ(uczen, nauczyciel, dyrektor, rodzic))
+
+huj
