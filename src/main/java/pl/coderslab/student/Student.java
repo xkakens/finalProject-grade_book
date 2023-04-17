@@ -19,7 +19,7 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
-    private LocalDate dateOfbirth;
+    private LocalDate dateOfBirth;
     @OneToOne
     private Parent firstParent;
     @OneToOne
