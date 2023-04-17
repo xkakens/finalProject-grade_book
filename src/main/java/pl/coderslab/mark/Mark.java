@@ -3,10 +3,9 @@ package pl.coderslab.mark;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import pl.coderslab.subject.Subject;
 
 @Entity
 @Getter
@@ -18,4 +17,6 @@ public class Mark {
     private int importance;
     private int value;
     private String description;
+    @ManyToOne
+    private Subject subject;
 }
