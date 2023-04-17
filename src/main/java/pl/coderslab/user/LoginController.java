@@ -16,21 +16,10 @@ import java.util.List;
 @RequestMapping("")
 @Controller
 public class LoginController {
-    private final SchoolClassDao schoolClassDao;
 
-    private SchoolClassRepository schoolClassRepository;
-    public LoginController(SchoolClassDao schoolClassDao, SchoolClassRepository schoolClassRepository){
-        this.schoolClassDao = schoolClassDao;
-        this.schoolClassRepository = schoolClassRepository;
-    }
     @GetMapping("/login")
     public String login(){
         return "redirect:/userHome";
     }
-    @RequestMapping("/userHome")
-    public String userHome(Model model){
-        List<SchoolClass> classes = schoolClassDao.schoolClassList();
-        model.addAttribute("classes",classes);
-        return "userHome";
-    }
+
 }

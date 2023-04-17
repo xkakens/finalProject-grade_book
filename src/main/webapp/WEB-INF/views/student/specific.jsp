@@ -14,6 +14,6 @@
 <body>
 Imie: ${student.firstName}
 Nazwisko: ${student.lastName}
-Wiek: ${date}
+Wiek: ${age}
 </body>
 </html>

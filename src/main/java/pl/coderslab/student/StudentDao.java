@@ -21,4 +21,18 @@ public class StudentDao {
         Optional<Student> optStudent = studentRepository.findById(id);
         return optStudent.orElse(null);
     }
+
+    public void addStudent(Student student){
+        studentRepository.save(student);
+    }
+
+    public void removeStudent(Long id){
+        Student s = specificStudent(id);
+        studentRepository.delete(s);
+    }
+
+    public void updateStudent(Long id){
+        Student s = specificStudent(id);
+        studentRepository.save(s);
+    }
 }
