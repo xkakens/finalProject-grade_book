@@ -31,7 +31,7 @@ public class StudentController {
         model.addAttribute("student", s);
         LocalDate today = LocalDate.now();
         LocalDate dateOfBirth = s.getDateOfBirth();
-        String age = Period.between(dateOfBirth, today).toString();
+        String age = String.valueOf(Period.between(dateOfBirth, today).getYears());
         model.addAttribute("age", age);
         return "student/specific";
     }
