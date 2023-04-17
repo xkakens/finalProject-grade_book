@@ -12,8 +12,8 @@
     <title>userHome</title>
 </head>
 <body>
-<c:forEach var="varName" items="${classes}">
-    ${varName.name}
+<c:forEach var="schoolClass" items="${classes}">
+    ${schoolClass.name}
 </c:forEach>
 </body>
 </html>

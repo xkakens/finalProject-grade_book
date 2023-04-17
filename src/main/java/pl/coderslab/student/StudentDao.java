@@ -7,7 +7,6 @@ import java.util.List;
 @Repository
 @Transactional
 public class StudentDao {
-
     private final StudentRepository studentRepository;
 
     public StudentDao(StudentRepository studentRepository){
@@ -16,5 +15,8 @@ public class StudentDao {
 
     public List<Student> allStudents(){
         return studentRepository.findAll();
+    }
+    public Student specificStudent(Long id){
+        return studentRepository.getOne(id);
     }
 }
