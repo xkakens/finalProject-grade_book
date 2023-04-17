@@ -30,4 +30,12 @@ public class StudentController {
         return "student/specific";
     }
 
+    @GetMapping("/add")
+    public String addStudent(Student student){
+        student.setFirstName("First name");
+        student.setLastName("Last name");
+        studentDao.addStudent(student);
+        return "student/all";
+    }
+
 }

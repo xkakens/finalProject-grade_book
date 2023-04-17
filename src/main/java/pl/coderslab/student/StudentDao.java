@@ -3,6 +3,7 @@ package pl.coderslab.student;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -17,6 +18,15 @@ public class StudentDao {
         return studentRepository.findAll();
     }
     public Student specificStudent(Long id){
-        return studentRepository.getOne(id);
+        Optional<Student> optStudent = studentRepository.findById(id);
+        if(optStudent.isPresent()){
+            return optStudent.get();
+        } else{
+            return null;
+        }
+    }
+
+    public void addStudent(Student student){
+        studentRepository.save(student);
     }
 }
