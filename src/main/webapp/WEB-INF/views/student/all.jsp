@@ -14,9 +14,9 @@
 <body>
 <c:forEach var="student" items="${students}">
     <h1>${student.firstName} ${student.lastName}</h1>
-    <br>
     ${student.schoolClass.id}
     <br>
+    <a href="/student/${student.id}">Więcej</a>
 </c:forEach>
 </body>
 </html>
