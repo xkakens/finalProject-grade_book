@@ -7,6 +7,8 @@ import pl.coderslab.parent.Parent;
 import pl.coderslab.schoolClass.SchoolClass;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -18,7 +20,7 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
-    private int age;
+    private LocalDate dateOfBirth;
     @OneToOne
     private Parent firstParent;
     @OneToOne
