@@ -14,7 +14,7 @@
 </head>
 <body>
 <h1>Dodawanie studenta</h1>
-<form action="/student/add" method="get">
+<form action="/student/add" method="post">
   <input type="text" placeholder="Imię" name="firstName"/><br>
   <input type="text" placeholder="Nazwisko" name="lastName"></br>
   <input type="number" value="0" name="parentOnePhoneNumber"/><br>

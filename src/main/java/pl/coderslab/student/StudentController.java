@@ -40,18 +40,18 @@ public class StudentController {
         return "student/specific";
     }
 
-
     @GetMapping("/add")
-    public String addStudent(Student student, HttpServletRequest request){
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String parentOnePhoneNumber = request.getParameter("parentOnePhoneNumber");
-        String parentTwoPhoneNumber = request.getParameter("parentTwoPhoneNumber");
-        System.out.println(firstName);
-        student.setFirstName("First name");
+    public String addStudent(){
+        return "student/add";
+    }
+
+    @PostMapping("/add")
+    public String addStudentX(){
+        Student student = new Student();
+        student.setFirstName("test");
         student.setLastName("Last name");
         studentDao.addStudent(student);
-        return "student/all";
+        return "redirect:all";
     }
 
     @GetMapping("/remove/{id}")
