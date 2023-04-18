@@ -2,10 +2,7 @@ package pl.coderslab.student;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.mark.MarkDao;
 import pl.coderslab.mark.Mark;
 
@@ -17,9 +14,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-    private StudentDao studentDao;
-    private MarkDao markDao;
-    private StudentRepository studentRepository;
+    private final StudentDao studentDao;
+    private final MarkDao markDao;
+
     public StudentController(StudentDao studentDao, MarkDao markDao){
         this.markDao = markDao;
         this.studentDao = studentDao;
@@ -48,10 +45,11 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public String addStudentX(HttpServletRequest request){
+    public String addStudent(HttpServletRequest request){
         Student student = new Student();
         student.setFirstName(request.getParameter("firstName"));
         student.setLastName(request.getParameter("lastName"));
+        student.setDateOfBirth(LocalDate.parse(request.getParameter("dateOfBirth")));
         studentDao.addStudent(student);
         return "redirect:all";
     }
@@ -61,13 +59,20 @@ public class StudentController {
         studentDao.removeStudent(id);
         return "student/remove";
     }
-
     @GetMapping("/update/{id}")
-    public String update(@PathVariable Long id){
+    public String updateStudent(@PathVariable Long id, Model model){
         Student s = studentDao.specificStudent(id);
-        s.setFirstName("updated first name");
-        s.setLastName("updated last name");
-        return "student/all";
+        model.addAttribute("student", s);
+        return "student/update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable Long id,HttpServletRequest request){
+        Student s = studentDao.specificStudent(id);
+        s.setFirstName(request.getParameter("firstName"));
+//        s.setLastName();
+        studentDao.updateStudent(id);
+        return "redirect:all";
     }
 
     @GetMapping("/marks/{id}")

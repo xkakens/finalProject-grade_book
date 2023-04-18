@@ -11,9 +11,11 @@
 <head>
     <title>Title</title>
 </head>
-<body>
-Imie: ${student.firstName}
-Nazwisko: ${student.lastName}
-Wiek: ${age}
+<br>
+Imie: ${student.firstName}<br/>
+Nazwisko: ${student.lastName}<br/>
+Wiek: ${age}<br/>
+Data urodzenia: ${student.dateOfBirth}
+<a href="update/${student.id}"> Zmień dane </a>
 </body>
 </html>

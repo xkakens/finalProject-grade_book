@@ -17,8 +17,8 @@
 <form action="/student/add" method="post">
   <input type="text" placeholder="Imię" name="firstName"/><br>
   <input type="text" placeholder="Nazwisko" name="lastName"></br>
-  <input type="number" value="0" name="parentOnePhoneNumber"/><br>
-  <input type="number" value="0" name="parentTwoPhoneNumber"/><br>
+  Numer telefonu rodzica 1<input type="number" value="0" name="parentOnePhoneNumber"/><br>
+  Numer telefonu rodzica 2<input type="number" value="0" name="parentTwoPhoneNumber"/><br>
   <input type="date" name="dateOfBirth"/><br>
   <input type="submit" value="Zapisz">
 </form>
