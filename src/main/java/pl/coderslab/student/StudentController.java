@@ -46,10 +46,10 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public String addStudentX(){
+    public String addStudentX(HttpServletRequest request){
         Student student = new Student();
-        student.setFirstName("test");
-        student.setLastName("Last name");
+        student.setFirstName(request.getParameter("firstName"));
+        student.setLastName(request.getParameter("lastName"));
         studentDao.addStudent(student);
         return "redirect:all";
     }
