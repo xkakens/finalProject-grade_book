@@ -73,9 +73,9 @@ public class StudentController {
     @GetMapping("/marks/{id}")
     public String studentMarks(@PathVariable Long id, Model model){
         List<Mark> marks = markDao.markList(id);
+        Student s = studentDao.specificStudent(id);
+        model.addAttribute("student", s);
         model.addAttribute("marks", marks);
         return "student/marks";
-
     }
-
 }
