@@ -1,6 +1,8 @@
 package pl.coderslab.student;
 
 import org.springframework.stereotype.Repository;
+import pl.coderslab.schoolClass.SchoolClassDao;
+
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -34,5 +36,11 @@ public class StudentDao {
     public void updateStudent(Long id){
         Student s = specificStudent(id);
         studentRepository.save(s);
+
     }
+
+    public List<Student> classStudents(Long id){
+        return studentRepository.findStudentsBySchoolClassId(id);
+    }
+
 }
