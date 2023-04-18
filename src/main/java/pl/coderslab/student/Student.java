@@ -29,4 +29,5 @@ public class Student {
     @OneToMany
     private List<Mark> marks;
 
+
 }
