@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import pl.coderslab.student.Student;
 import pl.coderslab.subject.Subject;
 
 @Entity
@@ -21,4 +22,6 @@ public class Mark {
     private Subject subject;
     @ManyToOne
     private MarkType markType;
+    @ManyToOne
+    private Student student;
 }
