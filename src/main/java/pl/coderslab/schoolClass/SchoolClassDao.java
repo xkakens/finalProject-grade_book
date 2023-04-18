@@ -26,5 +26,4 @@ public class SchoolClassDao {
         Optional<SchoolClass> optSchool = schoolClassRepository.findById(id);
         return optSchool.orElse(null);
     }
-
 }

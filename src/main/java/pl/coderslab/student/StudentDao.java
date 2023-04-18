@@ -1,8 +1,6 @@
 package pl.coderslab.student;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.schoolClass.SchoolClassDao;
-
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
