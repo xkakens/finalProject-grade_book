@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<a href="/student/add">Dodaj ucznia</a>
 <c:forEach var="student" items="${students}">
     <h1>${student.firstName} ${student.lastName}</h1>
     <br>

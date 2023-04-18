@@ -12,6 +12,7 @@
   <title>userHome</title>
 </head>
 <body>
+<a href="/class/add">Dodaj klasę</a>
 <c:forEach var="schoolClass" items="${classes}">
   <h1>${schoolClass.name}</h1>
   <a href="/class/studentlist/${schoolClass.id}"> Uczniowie </a>

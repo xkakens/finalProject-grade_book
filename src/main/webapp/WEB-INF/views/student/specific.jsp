@@ -15,5 +15,6 @@
 Imie: ${student.firstName}
 Nazwisko: ${student.lastName}
 Wiek: ${age}
+Klasa: ${classId}
 </body>
 </html>

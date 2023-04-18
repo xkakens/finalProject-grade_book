@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.schoolClass.SchoolClassDao;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.LocalDate;
@@ -18,9 +20,11 @@ import java.util.List;
 @RequestMapping("/student")
 public class StudentController {
     private StudentDao studentDao;
+    private SchoolClassDao schoolClassDao;
     private StudentRepository studentRepository;
-    public StudentController(StudentDao studentDao){
+    public StudentController(StudentDao studentDao, SchoolClassDao schoolClassDao){
         this.studentDao = studentDao;
+        this.schoolClassDao = schoolClassDao;
     }
     @RequestMapping("/all")
     public String allStudents(Model model){
@@ -30,7 +34,9 @@ public class StudentController {
     }
 
     @RequestMapping("/{id}")
-    public String specificStudent(@PathVariable("id") Long id, Model model){
+    public String specificStudent(@PathVariable("id") Long id, Model model, HttpServletRequest request){
+        HttpSession sess = request.getSession();
+        model.addAttribute("classId",sess.getAttribute("classId"));
         Student s = studentDao.specificStudent(id);
         model.addAttribute("student", s);
         LocalDate today = LocalDate.now();
@@ -47,11 +53,13 @@ public class StudentController {
 
     @PostMapping("/add")
     public String addStudentX(HttpServletRequest request){
+        HttpSession session = request.getSession();
         Student student = new Student();
         student.setFirstName(request.getParameter("firstName"));
         student.setLastName(request.getParameter("lastName"));
+        student.setSchoolClass(schoolClassDao.specificClass(Long.parseLong(session.getAttribute("classId").toString())));
         studentDao.addStudent(student);
-        return "redirect:all";
+        return "redirect:/class/studentlist/" + session.getAttribute("classId");
     }
 
     @GetMapping("/remove/{id}")

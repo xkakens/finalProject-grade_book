@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.student.Student;
 import pl.coderslab.student.StudentDao;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RequestMapping("/class")
@@ -34,7 +36,9 @@ public class SchoolClassController {
         return "class/all";
     }
     @GetMapping("/studentlist/{id}")
-    public String classStudents(@PathVariable Long id, Model model){
+    public String classStudents(@PathVariable Long id, Model model, HttpServletRequest request){
+        HttpSession sess = request.getSession();
+        sess.setAttribute("classId",id);
         List<Student> students = studentDao.classStudents(id);
         model.addAttribute("students", students);
         return "class/studentlist";
