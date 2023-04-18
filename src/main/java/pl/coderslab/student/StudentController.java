@@ -4,8 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.LocalDate;
@@ -39,11 +41,17 @@ public class StudentController {
     }
 
     @GetMapping("/add")
-    public String addStudent(Student student){
-        student.setFirstName("First name");
-        student.setLastName("Last name");
+    public String addStudent(){
+        return "student/add";
+    }
+
+    @PostMapping("/add")
+    public String addStudentX(HttpServletRequest request){
+        Student student = new Student();
+        student.setFirstName(request.getParameter("firstName"));
+        student.setLastName(request.getParameter("lastName"));
         studentDao.addStudent(student);
-        return "student/all";
+        return "redirect:all";
     }
 
     @GetMapping("/remove/{id}")
