@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.mark.Mark;
+import pl.coderslab.mark.MarkDao;
 import pl.coderslab.schoolClass.SchoolClassDao;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +23,12 @@ import java.util.List;
 public class StudentController {
     private StudentDao studentDao;
     private SchoolClassDao schoolClassDao;
+    private MarkDao markDao;
     private StudentRepository studentRepository;
-    public StudentController(StudentDao studentDao, SchoolClassDao schoolClassDao){
+    public StudentController(StudentDao studentDao, SchoolClassDao schoolClassDao, MarkDao markDao){
         this.studentDao = studentDao;
         this.schoolClassDao = schoolClassDao;
+        this.markDao = markDao;
     }
     @RequestMapping("/all")
     public String allStudents(Model model){
@@ -74,6 +78,14 @@ public class StudentController {
         s.setFirstName("updated first name");
         s.setLastName("updated last name");
         return "student/all";
+    }
+
+    @GetMapping("/marks/{id}")
+    public String studentMarks(@PathVariable Long id, Model model){
+        List<Mark> marks = markDao.markList(id);
+        model.addAttribute("marks", marks);
+        return "student/marks";
+
     }
 
 }
