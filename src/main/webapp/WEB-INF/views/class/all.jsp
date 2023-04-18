@@ -14,7 +14,7 @@
 <body>
 <c:forEach var="schoolClass" items="${classes}">
   <h1>${schoolClass.name}</h1>
-  <a href="/class/studentlist/${schoolClass.id}"></a>
+  <a href="/class/studentlist/${schoolClass.id}"> Uczniowie </a>
 </c:forEach>
 </body>
 </html>
