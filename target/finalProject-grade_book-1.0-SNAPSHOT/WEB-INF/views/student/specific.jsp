@@ -13,8 +13,11 @@
 </head>
 <body>
 Imie: ${student.firstName}
+<br>
 Nazwisko: ${student.lastName}
-Wiek: ${age}
+<br>
 Klasa: ${classId}
+<br>
+<a href="/student/update/${student.id}">Edycja ucznia</a>
 </body>
 </html>

@@ -18,6 +18,10 @@ public class SchoolClassDao {
         this.schoolClassRepository = schoolClassRepository;
     }
 
+    public void addSchoolClass(SchoolClass schoolClass){
+        schoolClassRepository.save(schoolClass);
+    }
+
     public List<SchoolClass> schoolClassList() {
         return schoolClassRepository.findAll();
     }

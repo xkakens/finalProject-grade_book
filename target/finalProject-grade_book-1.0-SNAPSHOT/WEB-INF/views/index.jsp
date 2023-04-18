@@ -12,7 +12,7 @@
     <title>E-dziennik</title>
 </head>
 <body>
-<form action="/login" method="">
+<form action="/class/all" method="">
     <input type="submit" value="Zaloguj">
 </form>
 </body>
