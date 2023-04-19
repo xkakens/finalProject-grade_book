@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<a href="/student/${student.id}"><-- Powrót</a><br>
     <h1>Zmiana danych ucznia</h1>
     <c:forEach var="schoolClass" items="${classes}">
         ${schoolClass.id}: ${schoolClass.name}

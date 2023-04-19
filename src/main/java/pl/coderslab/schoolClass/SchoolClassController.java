@@ -46,6 +46,7 @@ public class SchoolClassController {
         sess.setAttribute("classId",id);
         List<Student> students = studentDao.classStudents(id);
         model.addAttribute("students", students);
+        model.addAttribute("classId",id);
         return "class/studentlist";
     }
 

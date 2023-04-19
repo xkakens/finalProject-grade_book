@@ -13,6 +13,7 @@
     <title>Dodawanie ucznia</title>
 </head>
 <body>
+<a href="/class/studentlist/${classId}"><-- Powrót</a><br>
 <h1>Dodawanie studenta</h1>
 <form action="/student/add" method="post">
   <input type="text" placeholder="Imię" name="firstName"/><br>

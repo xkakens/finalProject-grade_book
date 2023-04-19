@@ -12,6 +12,8 @@
     <title>Title</title>
 </head>
 <body>
+<a href="/class/all"><--- Powrót</a>
+<br>
 <c:forEach var="teacher" items="${teachers}">
     <h1>${teacher.id}: ${teacher.firstName} ${teacher.lastName}</h1>
     <br>

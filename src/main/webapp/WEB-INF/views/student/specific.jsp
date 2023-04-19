@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<a href="/class/studentlist/${student.schoolClass.id}"><-- Powrót</a><br>
 Imie: ${student.firstName}
 <br>
 Nazwisko: ${student.lastName}

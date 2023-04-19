@@ -49,7 +49,9 @@ public class StudentController {
     }
 
     @GetMapping("/add")
-    public String addStudent(){
+    public String addStudent(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+        model.addAttribute("classId",session.getAttribute("classId"));
         return "student/add";
     }
 
@@ -89,9 +91,9 @@ public class StudentController {
         Student s = studentDao.specificStudent(id);
         s.setFirstName(request.getParameter("firstName"));
         s.setLastName(request.getParameter("lastName"));
-        //s.setDateOfBirth(LocalDate.parse(request.getParameter("dateOfBirth")));
+        s.setDateOfBirth(LocalDate.parse(request.getParameter("dateOfBirth")));
         s.setSchoolClass(schoolClassDao.specificClass(Long.parseLong(request.getParameter("classId"))));
-        studentDao.updateStudent(id);
+        studentDao.updateStudent(s);
         return "redirect:/class/studentlist/"+classId.toString();
     }
 

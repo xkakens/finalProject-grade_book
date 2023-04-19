@@ -31,9 +31,8 @@ public class StudentDao {
         studentRepository.delete(s);
     }
 
-    public void updateStudent(Long id){
-        Student s = specificStudent(id);
-        studentRepository.save(s);
+    public void updateStudent(Student student){
+        studentRepository.save(student);
 
     }
 
