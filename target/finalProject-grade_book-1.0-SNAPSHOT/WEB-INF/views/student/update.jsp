@@ -18,6 +18,7 @@
         ${schoolClass.id}: ${schoolClass.name}
         <br>
     </c:forEach>
+    <!-- michał podstawy formularza -->
     <form action="/student/update/${student.id}" method="post">
         <input type="text" name="firstName" value="${student.firstName}">
         <br>

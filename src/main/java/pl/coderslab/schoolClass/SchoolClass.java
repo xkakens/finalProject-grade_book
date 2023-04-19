@@ -5,7 +5,7 @@ import lombok.Setter;
 import pl.coderslab.teacher.Teacher;
 
 import javax.persistence.*;
-
+//michał
 @Entity
 @Getter
 @Setter

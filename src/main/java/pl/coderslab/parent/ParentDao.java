@@ -3,7 +3,7 @@ package pl.coderslab.parent;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-
+//michał
 @Repository
 @Transactional
 public class ParentDao {

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.persistence.EntityManagerFactory;
-
+//50/50
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "pl.coderslab")

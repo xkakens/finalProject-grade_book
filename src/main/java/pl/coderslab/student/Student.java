@@ -9,7 +9,7 @@ import pl.coderslab.schoolClass.SchoolClass;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-
+//michał
 @Entity
 @Setter
 @Getter
@@ -26,8 +26,6 @@ public class Student {
     private Parent secondParent;
     @ManyToOne
     private SchoolClass schoolClass;
-    @OneToMany
-    private List<Mark> marks;
 
 
 }

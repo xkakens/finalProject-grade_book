@@ -9,7 +9,7 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
-
+//50/50
 public class AppInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext container) throws ServletException {
         AnnotationConfigWebApplicationContext ctx =

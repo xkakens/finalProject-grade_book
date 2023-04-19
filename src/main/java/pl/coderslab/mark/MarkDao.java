@@ -7,6 +7,8 @@ import pl.coderslab.student.StudentDao;
 import javax.transaction.Transactional;
 import java.util.List;
 
+//michał
+
 @Repository
 @Transactional
 public class MarkDao {

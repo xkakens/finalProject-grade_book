@@ -8,6 +8,8 @@ import javax.persistence.*;
 import pl.coderslab.student.Student;
 import pl.coderslab.subject.Subject;
 
+//michał
+
 @Entity
 @Getter
 @Setter
